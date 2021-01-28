@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+    <!-- GoogleFont -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link href="src/styles.css" rel="stylesheet" type="text/css" />
+    <title>Weather</title>
+  </head>
+  <body>
+    <div class="container">
+      <!--Row 1-->
+      <div class="row row1">
+        <h1>My Weather Machine</h1>
+      </div>
+
+      <!--Row 2-->
+      <div class="row row2">
+        <!--R2C1 Input-->
+        <div class="col-5">
+          <form id="city-submit-form">
+            <div class="mb-3">
+              <label for="city-input-area" class="form-label">What city?</label>
+              <input
+                type="text"
+                class="form-control"
+                id="city-input-area"
+                aria-describedby="emailHelp"
+                autofocus="on"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+        <!--R2C2 Feature Text-->
+        <div class="col-4 feature-text">
+          <p class="feature-city" id="city-text">Boston</p>
+          <p id="feature-time">Thursday 3:05</p>
+          <div>
+            <span id="display-temp">19</span>
+          </div>
+          <p>Sunshine</p>
+        </div>
+
+        <!-- R2C2 Feature Pic-->
+        <div class="col">
+          <img
+            src="images/SunBlank.png"
+            class="img-fluid"
+            alt="Responsive image"
+          />
+        </div>
+      </div>
+
+      <!--Row 3-->
+      <div class="row row3">
+        <!--R3C1-->
+        <div class="col">
+          <p>Mon 1/1</p>
+          <img
+            src="images/SunBlank.png"
+            class="img-fluid"
+            alt="Responsive image"
+          />
+          <p>45°</p>
+        </div>
+
+        <!--R3C2-->
+        <div class="col">
+          <p>Tues 1/2</p>
+          <img
+            src="images/SunBlank.png"
+            class="img-fluid"
+            alt="Responsive image"
+          />
+          <p>45°</p>
+        </div>
+
+        <!--R3C3-->
+        <div class="col">
+          <p>Wed 1/3</p>
+          <img
+            src="images/PartCloud.png"
+            class="img-fluid"
+            alt="Responsive image"
+          />
+          <p>29°</p>
+        </div>
+
+        <!--R3C4-->
+        <div class="col">
+          <p>Thurs 1/4</p>
+          <img src="images/Rain.png" class="img-fluid" alt="Responsive image" />
+          <p>39°</p>
+        </div>
+
+        <!--R3C5-->
+        <div class="col">
+          <p>Fri 1/5</p>
+          <img
+            src="images/SunBlank.png"
+            class="img-fluid"
+            alt="Responsive image"
+          />
+          <p>20°</p>
+        </div>
+      </div>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>
