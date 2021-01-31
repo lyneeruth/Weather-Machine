@@ -24,34 +24,36 @@ function getFormatTime() {
   return displayTime;
 }
 
-///Display city & Call WeatherAPI
-function displayCityCallWeather(event) {
+function onSubmit(event) {
   event.preventDefault();
-  let cityText = document.querySelector("#city-input-area");
-  let cityTextValue = cityText.value;
-  console.log(cityTextValue);
-  let cityDisplay = document.querySelector("#city-text");
-  cityDisplay.innerHTML = cityText.value;
-
-  axios
-    .get(`${apiURL}q=${cityTextValue}&units=metric&appid=${apiKey}`)
-    .then(displayWeather);
+  let cityInput = document.querySelector("#city-input-area").value;
+  getCityApiInfo(cityInput);
 }
-///Weather API Response to display Weather
-function displayWeather(response) {
+
+function getCityApiInfo(city) {
+  let apiKey = "16b311402d819220aacc1ab1a949702b";
+  let apiURL = "https://api.openweathermap.org/data/2.5/weather?";
+  axios
+    .get(`${apiURL}q=${city}&units=metric&appid=${apiKey}`)
+    .then(displayWeatherInfo);
+}
+
+function displayWeatherInfo(response) {
   console.log(response);
+  let cityDisplay = document.querySelector("#city-text");
+  cityDisplay.innerHTML = response.data.name;
   let temperature = Math.round(response.data.main.temp);
   console.log(temperature);
   let tempElement = document.querySelector("#display-temp");
   tempElement.innerHTML = `${temperature}°C`;
 }
-let apiKey = "16b311402d819220aacc1ab1a949702b";
-let apiURL = "https://api.openweathermap.org/data/2.5/weather?";
-let cityInputForm = document.querySelector("#city-submit-form");
-cityInputForm.addEventListener("submit", displayCityCallWeather);
 
 let displayTimeElement = document.querySelector("#feature-time");
 displayTimeElement.innerHTML = getFormatTime();
+
+//grabbing the form element & activating function on submit event
+let cityInputForm = document.querySelector("#city-submit-form");
+cityInputForm.addEventListener("submit", onSubmit);
 
 //Celsius and Fahrenheight
 
