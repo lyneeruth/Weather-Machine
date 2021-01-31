@@ -3,6 +3,10 @@ body {
   color: darkslategray;
   margin-top: 20px;
 }
+a {
+  text-align: center;
+  text-decoration: none;
+}
 p {
   text-align: center;
 }
