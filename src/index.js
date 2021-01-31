@@ -1,3 +1,29 @@
+///Function to get current day/time, return the reformatted string
+function getFormatTime() {
+  //is there any benefit to getting the Date here in the function, rather than passing it to the function from main body?
+  let now = new Date();
+  let day = now.getDay();
+  console.log(now);
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let displayDay = days[day];
+  let displayHour = now.getHours();
+  let displayMin = now.getMinutes();
+  if (displayMin < 10) {
+    displayMin = "0" + displayMin;
+  }
+  let displayTime = `${displayDay} ${displayHour}:${displayMin}`;
+
+  return displayTime;
+}
+
 ///Display city & Call WeatherAPI
 function displayCityCallWeather(event) {
   event.preventDefault();
@@ -24,26 +50,8 @@ let apiURL = "https://api.openweathermap.org/data/2.5/weather?";
 let cityInputForm = document.querySelector("#city-submit-form");
 cityInputForm.addEventListener("submit", displayCityCallWeather);
 
-///Display day and time
-let now = new Date();
-let day = now.getDay();
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let displayDay = days[day];
-let displayHour = now.getHours();
-let displayMin = now.getMinutes();
-if (displayMin < 10) {
-  displayMin = "0" + displayMin;
-}
-let displayTime = document.querySelector("#feature-time");
-displayTime.innerHTML = `${displayDay} ${displayHour}:${displayMin}`;
+let displayTimeElement = document.querySelector("#feature-time");
+displayTimeElement.innerHTML = getFormatTime();
 
 //Celsius and Fahrenheight
 
