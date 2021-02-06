@@ -44,7 +44,7 @@ function displayWeatherInfo(response) {
   cityDisplay.innerHTML = response.data.name;
   let tempElement = document.querySelector("#display-temp");
   let temperature = Math.round(response.data.main.temp);
-  tempElement.innerHTML = `${temperature}°C`;
+  tempElement.innerHTML = `${temperature}`;
   let conditionElement = document.querySelector("#display-cond");
   conditionElement.innerHTML = response.data.weather[0].description;
   let windElement = document.querySelector("#display-wind");
