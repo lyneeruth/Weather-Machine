@@ -59,15 +59,25 @@ function displayWeatherInfo(response) {
   );
 }
 
-function displayC(event) {
+function displayCel(event) {
+  //activeTemp class toggles the link colors
   event.preventDefault();
   let tempDisplay = document.querySelector("#display-temp");
   tempDisplay.innerHTML = Math.round((fixedTemp - 32) / 1.8);
+  let fahrIconElement2 = document.querySelector("#fahrenIcon");
+  fahrIconElement2.classList.remove("activeTemp");
+  let celIconElement2 = document.querySelector("#celIcon");
+  celIconElement2.classList.add("activeTemp");
 }
-function displayF(event) {
+function displayFahr(event) {
+  //activeTemp class toggles the link colors
   event.preventDefault();
   let tempDisplay = document.querySelector("#display-temp");
   tempDisplay.innerHTML = fixedTemp;
+  let fahrIconElement3 = document.querySelector("#fahrenIcon");
+  fahrIconElement3.classList.add("activeTemp");
+  let celIconElement3 = document.querySelector("#celIcon");
+  celIconElement3.classList.remove("activeTemp");
 }
 
 let displayTimeElement = document.querySelector("#feature-time");
@@ -81,24 +91,6 @@ cityInputForm.addEventListener("submit", onSubmit);
 
 //C & F Conversion
 let celIconElement = document.querySelector("#celIcon");
-celIconElement.addEventListener("click", displayC);
+celIconElement.addEventListener("click", displayCel);
 let fahrenIconElement = document.querySelector("#fahrenIcon");
-fahrenIconElement.addEventListener("click", displayF);
-
-//Celsius and Fahrenheight
-
-//Display F on click
-/*function displayC(event) {
-  let tempDisplay = document.querySelector("#display-temp");
-  tempDisplay.innerHTML = "66";
-}
-
-
-//Display C on click
-function displayC(event) {
-  let tempDisplay2 = document.querySelector("#display-temp");
-  tempDisplay2.innerHTML = "19";
-}
-let cValue = document.querySelector("#cels-value");
-cValue.addEventListener("click", displayC);
-*/
+fahrenIconElement.addEventListener("click", displayFahr);

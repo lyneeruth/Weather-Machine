@@ -61,10 +61,6 @@ li {
   font-size: 14px;
   font-weight: bold;
 }
-#fahren-value,
-#cels-value {
-  text-decoration: none;
-}
 
 #display-cond {
   text-transform: capitalize;
@@ -72,4 +68,8 @@ li {
 .feature-temp {
   font-weight: bold;
   font-size: 18px;
+}
+
+.activeTemp {
+  color: darkslategray;
 }
