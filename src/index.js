@@ -46,6 +46,10 @@ function displayWeatherInfo(response) {
   console.log(temperature);
   let tempElement = document.querySelector("#display-temp");
   tempElement.innerHTML = `${temperature}°C`;
+  let conditionElement = document.querySelector("#display-cond");
+  conditionElement.innerHTML = response.data.weather[0].description;
+  let windElement = document.querySelector("#display-wind");
+  windElement.innerHTML = Math.round(response.data.wind.speed);
 }
 
 let displayTimeElement = document.querySelector("#feature-time");
