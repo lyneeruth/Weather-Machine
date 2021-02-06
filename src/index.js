@@ -42,14 +42,20 @@ function displayWeatherInfo(response) {
   console.log(response);
   let cityDisplay = document.querySelector("#city-text");
   cityDisplay.innerHTML = response.data.name;
-  let temperature = Math.round(response.data.main.temp);
-  console.log(temperature);
   let tempElement = document.querySelector("#display-temp");
+  let temperature = Math.round(response.data.main.temp);
   tempElement.innerHTML = `${temperature}°C`;
   let conditionElement = document.querySelector("#display-cond");
   conditionElement.innerHTML = response.data.weather[0].description;
   let windElement = document.querySelector("#display-wind");
   windElement.innerHTML = Math.round(response.data.wind.speed);
+
+  let featureIconElement = document.querySelector("#display-weather-img");
+  let iconCode = response.data.weather[0].icon;
+  featureIconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${iconCode}@2x.png`
+  );
 }
 
 let displayTimeElement = document.querySelector("#feature-time");
