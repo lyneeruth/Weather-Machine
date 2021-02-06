@@ -44,6 +44,7 @@ function displayWeatherInfo(response) {
   cityDisplay.innerHTML = response.data.name;
   let tempElement = document.querySelector("#display-temp");
   let temperature = Math.round(response.data.main.temp);
+  fixedTemp = temperature;
   tempElement.innerHTML = `${temperature}`;
   let conditionElement = document.querySelector("#display-cond");
   conditionElement.innerHTML = response.data.weather[0].description;
@@ -58,22 +59,40 @@ function displayWeatherInfo(response) {
   );
 }
 
+function displayC(event) {
+  event.preventDefault();
+  let tempDisplay = document.querySelector("#display-temp");
+  tempDisplay.innerHTML = Math.round((fixedTemp - 32) / 1.8);
+}
+function displayF(event) {
+  event.preventDefault();
+  let tempDisplay = document.querySelector("#display-temp");
+  tempDisplay.innerHTML = fixedTemp;
+}
+
 let displayTimeElement = document.querySelector("#feature-time");
 displayTimeElement.innerHTML = getFormatTime();
 
 //grabbing the form element & activating function on submit event
+//setting up global variable that can be used in API call and also in C/F conversion
+let fixedTemp = null;
 let cityInputForm = document.querySelector("#city-submit-form");
 cityInputForm.addEventListener("submit", onSubmit);
+
+//C & F Conversion
+let celIconElement = document.querySelector("#celIcon");
+celIconElement.addEventListener("click", displayC);
+let fahrenIconElement = document.querySelector("#fahrenIcon");
+fahrenIconElement.addEventListener("click", displayF);
 
 //Celsius and Fahrenheight
 
 //Display F on click
-/*function displayF(event) {
+/*function displayC(event) {
   let tempDisplay = document.querySelector("#display-temp");
   tempDisplay.innerHTML = "66";
 }
-let fValue = document.querySelector("#fahren-value");
-fValue.addEventListener("click", displayF);
+
 
 //Display C on click
 function displayC(event) {
