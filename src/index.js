@@ -34,7 +34,7 @@ function getCityApiInfo(city) {
   let apiKey = "16b311402d819220aacc1ab1a949702b";
   let apiURL = "https://api.openweathermap.org/data/2.5/weather?";
   axios
-    .get(`${apiURL}q=${city}&units=metric&appid=${apiKey}`)
+    .get(`${apiURL}q=${city}&units=imperial&appid=${apiKey}`)
     .then(displayWeatherInfo);
 }
 
