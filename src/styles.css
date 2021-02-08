@@ -5,19 +5,22 @@ body {
 }
 a {
   text-decoration: none;
+  color: rgb(242, 106, 91);
 }
-p {
-  text-align: center;
-  font-size: 14px;
-}
+
 h1 {
   padding: 7px;
   margin-bottom: 0;
   text-align: center;
 }
+
 li {
   list-style-type: none;
 }
+.activeTemp {
+  color: darkslategray;
+}
+
 .btn {
   background-color: rgb(245, 178, 95);
   border-color: rgb(245, 178, 95);
@@ -30,6 +33,8 @@ li {
 }
 .container {
   background-color: rgb(198, 232, 232);
+  max-width: 600px;
+  margin: 0 auto;
 }
 .feature-city {
   font-size: 24px;
@@ -39,6 +44,11 @@ li {
   padding-right: 0;
   text-align: right;
 }
+.feature-temp {
+  font-weight: bold;
+  font-size: 18px;
+}
+
 .row1 {
   background-color: rgb(135, 202, 203);
 }
@@ -47,29 +57,10 @@ li {
 }
 .row3 {
   padding-top: 30px;
-}
-.row4 {
-  padding-top: 20px;
+  padding-bottom: 10px;
   text-align: center;
-}
-.feature-text p {
-  text-align: right;
-  margin: 0;
-}
-.row3 p {
-  margin: 5px;
-  font-size: 14px;
-  font-weight: bold;
 }
 
 #display-cond {
   text-transform: capitalize;
-}
-.feature-temp {
-  font-weight: bold;
-  font-size: 18px;
-}
-
-.activeTemp {
-  color: darkslategray;
 }

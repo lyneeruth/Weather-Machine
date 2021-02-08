@@ -1,9 +1,7 @@
 ///Function to get current day/time, return the reformatted string
 function getFormatTime() {
-  //is there any benefit to getting the Date here in the function, rather than passing it to the function from main body?
   let now = new Date();
   let day = now.getDay();
-  console.log(now);
   let days = [
     "Sunday",
     "Monday",
@@ -39,7 +37,6 @@ function getCityApiInfo(city) {
 }
 
 function displayWeatherInfo(response) {
-  console.log(response);
   let cityDisplay = document.querySelector("#city-text");
   cityDisplay.innerHTML = response.data.name;
   let tempElement = document.querySelector("#display-temp");
